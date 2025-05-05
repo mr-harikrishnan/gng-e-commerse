@@ -1,0 +1,151 @@
+* {
+    margin: 0px;
+    padding: 0px
+}
+
+.container {
+    width: 100%;
+    height: 100%;
+}
+
+/* HEADER----------------------------- */
+
+.header {
+    height: 8vh;
+    width: 100vw;
+    background-color: #D4E5F5;
+    display: flex;
+    align-items: center;
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+
+}
+
+.logo {
+    margin-top: 10px;
+    height: 90px;
+    width: 90px;
+}
+
+.span {
+    font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.navBar {
+    display: flex;
+    margin-left: 700px;
+}
+
+.navLinks {
+    margin-left: 100px;
+}
+
+.profile {
+    margin-top: 5px;
+    margin-left: 100px;
+    height: 30px;
+    width: 30px;
+}
+
+/* POSTER-------------------------------------------? */
+.poster {
+    width: 100vw;
+    height: 350px;
+    img{
+        width: 1536px;
+    }
+    
+}
+
+/* ALL Products */
+
+
+.allProducts {
+
+    width: 100vw;
+    height: 100vh;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    margin-top: 20px;
+}
+
+.product {
+    width: 300px;
+    border-radius: 12px;
+    box-shadow: 0 6px 20px #D4E5F5;
+    font-family: 'Segoe UI', sans-serif;
+    overflow: hidden;
+    transition: transform 0.3s ease;
+    margin: 20px;
+    display: flex;
+    flex-direction: column ;
+  
+    align-items: center;
+    :hover {
+        transform: scale(1.03);
+      }
+  }
+  
+  
+  
+  .image img {
+    width: 60%;
+    margin-left: 60px;
+
+  
+  }
+
+  
+  .details {
+    padding: 15px;
+
+    h4 {
+        font-size: 18px;
+        margin-bottom: 5px;
+        color: #2c3e50;
+      }
+
+      p {
+        font-size: 14px;
+        color: #555;
+        margin-bottom: 12px;
+        line-height: 1.4;
+      }
+      h3 {
+        color: #1e88e5;
+        margin: 10px 0;
+      }
+      h5 {
+        color: #888;
+        
+      }
+  }
+  
+  
+  
+  
+  
+
+  
+  .addToCart {
+    padding: 0 15px 15px;
+  }
+  
+  .addToCart::before {
+    content: "Add to Cart 🛒";
+    display: inline-block;
+    background-color: #1e88e5;
+    color: white;
+    padding: 10px 18px;
+    font-size: 14px;
+    border: none;
+    border-radius: 6px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+  }
+  
+  .addToCart:hover::before {
+    background-color: #1565c0;
+  }
+  
+
