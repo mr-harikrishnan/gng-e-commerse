@@ -5,7 +5,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>E-Commerce</title>
-    <link rel="stylesheet" href="./style.css">
+    <link rel="stylesheet" href="./style2.css">
 </head>
 
 <body>
@@ -17,18 +17,17 @@
             <div class="span">MixedLoot</div>
 
             <div class="navBar">
-                <div class="navLinks">Home</div>
+                <a href="./index.html" class="navLinks">Home</a>
+
                 <div class="navLinks">
-                    <select name="" id=""
+                    <select name="" id="categorySelect" onchange="navigateToCategory()"
                         style="border: none; font-family: 'Times New Roman', Times, serif; background: none; font-size: 18px;">
                         <option value="">Category</option>
-                        <option value="">Electronics</option>
-                        <option value="">Jwels</option>
-                        <option value="">Men's Cloth</option>
-                        <option value="">Women's Cloth</option>
+
+
                     </select>
                 </div>
-                <div class="navLinks">Cart</div>
+                <a href="./index.html" class="navLinks">Cart</a>
             </div>
 
             <div><img src="./assets/profile-user.png" alt="" class="profile"></div>
@@ -37,124 +36,14 @@
 
         <div class="poster"><img src="./assets/posterImage.png" alt=""></div>
 
-        <div class="allProducts">
-
-            <div class="product">
-                <div class="image"><img src="https://fakestoreapi.com/img/81fPKd-2AYL._AC_SL1500_.jpg" alt=""></div>
-                <div class="details">
-                    <h4>Fjallraven - Foldsack No. 1 Backpack, Fits 15 Laptops</h4>
-                    <p><span style="color: black;">Description :</span>Your perfect pack for everyday use and walks in the forest. Stash your laptop (up to 15 inches) in the padded sleeve, your everyday</p>
-                    <h3>Price : 2600/-</h3>
-                    <h5>rating : 3.9</h5>
-                </div>
-                <div class="addToCart"></div>
-            </div>
-
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
-            <div class="product">
-                <div class="image"></div>
-                <div class="details"></div>
-                <div class="addToCart"></div>
-            </div>
+        <div class="allProducts" id="allProducts">
+           
         </div>
 
+
+
     </div>
-    <script src="./script.js"></script>
+    <script src="./script/homePage.js"></script>
 </body>
 
 </html>
