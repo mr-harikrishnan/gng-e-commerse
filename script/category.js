@@ -1,3 +1,4 @@
+//header categoryFuntion
 
 async function fetchinCategoriesDatas() {
     return fetch("https://fakestoreapi.com/products/categories", {
@@ -30,12 +31,20 @@ function navigateToCategory() {
     }
 }
 
-// ---------------------
+// -------------------------------------------
+
+var params=new URLSearchParams(window.location.search)
+var value=params.get("category")
+console.log(value)
+// --------------------------------
+
+
 var allproducts = document.getElementById("allProducts")
-var cartArray=[]
+console.log(allproducts)
 
 async function fetchingData() {
-    return fetch("https://fakestoreapi.com/products", {
+    
+    return fetch(`https://fakestoreapi.com/products/category/${value}`, {
         method: "GET"
     })
 
@@ -57,9 +66,9 @@ async function getAlldatas() {
         productDiv.style.alignItems = "center";
         productDiv.style.flexDirection = "column";
         productDiv.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
-        productDiv.style.transition = "transform 0.2s ease";  // Smooth animation
+        productDiv.style.transition = "transform 0.2s ease"; 
 
-        // Hover effect
+
         productDiv.addEventListener("mouseover", function () {
             productDiv.style.transform = "scale(1.01)";
         });
@@ -107,6 +116,7 @@ async function getAlldatas() {
         price.textContent = `₹ ${product.price}`
         productDiv.appendChild(price)
 
+        
 
         var rating = document.createElement("div")
         rating.style.marginTop = "10px"
@@ -136,17 +146,13 @@ async function getAlldatas() {
         addToCart.style.transition = "background-color 0.3s ease, transform 0.2s ease";
         addToCart.style.boxShadow = "0 4px 12px rgba(13, 110, 253, 0.3)";
         addToCart.style.width = "150px";
-        addToCart.style.border = "none"; 
+        addToCart.style.border = "none"; // Removed the black border for a cleaner look
         addToCart.style.fontFamily = "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif";
-        addToCart.onclick=function(){
-            
-        }
+
+        // Append to the desired parent element
         productDiv.appendChild(addToCart);
     })
 
 
 }
 getAlldatas()
-
-
-
