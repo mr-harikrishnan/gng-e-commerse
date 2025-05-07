@@ -1,7 +1,9 @@
 var input = document.getElementById("search")
 
 input.addEventListener("input", () => {
-    var value = input.value
+
+    var value = input.value.toLowerCase()
+
     var encodedValue = encodeURIComponent(value)
     var newUrl = `${window.location.pathname}?search=${encodedValue}`
     window.history.replaceState(null, "", newUrl);
@@ -25,11 +27,16 @@ input.addEventListener("input", () => {
             var params = new URLSearchParams(window.location.search)
             var value = params.get("search")
 
-            var allProducts=document.getElementById("allProducts")
+            var allProducts = document.getElementById("allProducts")
 
+            allProducts.innerHTML = "";
+            if (!value.trim()) {
+                return;
+            }
             alldatas.forEach(product => {
+                
 
-                if (product.title.includes(value)) {
+                if (product.title.toLowerCase().includes(value)) {
 
                     var productDiv = document.createElement("div");
 
