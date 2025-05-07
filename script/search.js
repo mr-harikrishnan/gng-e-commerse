@@ -1,3 +1,41 @@
+//header and category function
+//header categoryFuntion
+
+async function fetchinCategoriesDatas() {
+    return fetch("https://fakestoreapi.com/products/categories", {
+        method: "GET"
+    })
+
+}
+
+async function fetchedData() {
+    var select = document.getElementById("categorySelect")
+
+    var datas = await fetchinCategoriesDatas()
+    var allDatas = await datas.json()
+    allDatas.forEach(element => {
+        var option = document.createElement("option")
+        option.value = element
+        option.textContent = element
+        select.appendChild(option)
+    })
+
+}
+fetchedData()
+
+function navigateToCategory() {
+    const select = document.getElementById("categorySelect");
+    const selectedValue = select.value;
+    if (selectedValue) {
+        window.location.href = `../pages/category.html?category=${selectedValue}`;
+
+    }
+}
+
+// ---------------------------------------------------------------------
+
+
+
 var input = document.getElementById("search")
 
 input.addEventListener("input", () => {
@@ -78,6 +116,7 @@ input.addEventListener("input", () => {
                     productImage.style.borderRadius = "10px"
                     productImage.style.height = "100%"
                     productImage.style.width = "100%"
+                    productImage.style.cursor = "pointer";
                     productImage.src = `${product.image}`
                     imageDiv.appendChild(productImage)
 

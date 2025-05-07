@@ -95,6 +95,7 @@ async function getAlldatas() {
         productImage.style.borderRadius = "10px"
         productImage.style.height = "100%"
         productImage.style.width = "100%"
+        productImage.style.cursor = "pointer";
         productImage.src = `${product.image}`
         imageDiv.appendChild(productImage)
 
