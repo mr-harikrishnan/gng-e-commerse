@@ -107,7 +107,6 @@ document.querySelector(".addToCart").addEventListener("click",function(){
 
             var existingData = cart.find(item => item.id === data.id)
             if (existingData) {
-                existingData.count += 1
             }
             else {
                 data.count = 1
@@ -138,7 +137,7 @@ var totalCartCount = 0
         if (cartJsonData) {
 
             cartJsonData.forEach(function (data) {
-                totalCartCount += data.count
+                totalCartCount++
                 document.getElementById("cartCount").textContent = totalCartCount
             })
 

@@ -141,9 +141,6 @@ async function getAlldatas() {
         addToCart.style.fontFamily = "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif";
 
         // ------------------------ADD TO CART FUCTION-------------------------------------------------------------
-
-
-
         addToCart.onclick = function () {
             var divId = this.id
 
@@ -165,7 +162,7 @@ async function getAlldatas() {
 
                     var existingData = cart.find(item => item.id === data.id)
                     if (existingData) {
-                        existingData.count += 1
+                        
                     }
                     else {
                         data.count = 1
@@ -195,7 +192,7 @@ async function getAlldatas() {
         if (cartJsonData) {
 
             cartJsonData.forEach(function (data) {
-                totalCartCount += data.count
+                totalCartCount ++
                 document.getElementById("cartCount").textContent = totalCartCount
             })
 
