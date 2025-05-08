@@ -5,21 +5,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
-    <link rel="stylesheet" href="../styles/productDetails.css">
+    <link rel="stylesheet" href="../styles/cart.css">
 </head>
 
 <body>
-    <div class="conatiner">
-
+    <div class="container">
         <div class="header">
 
             <img class="logo" src="../assets/birdLogo.png" alt="">
             <div class="span">MixedLoot</div>
 
             <div class="navBar">
-
                 <a href="../index.html" class="navLinks" style="opacity: 0.5;">Home 🏠︎</a>
-
                 <div class="navLinks">
                     <select style="margin-bottom: 5px;" id="categorySelect" onchange="navigateToCategory()"
                         class="custom-select">
@@ -27,12 +24,9 @@
                     </select>
                 </div>
 
-
                 <a href="./search.html">
-
                     <a href="./search.html" class="navLinks" style="margin-left: 60px">search </a>
                     <img style="width: 20px; ; opacity: 0.4; margin-top: 4px;" src="../assets/search-icon.png" alt="">
-
                 </a>
 
                 <a href="./cart.html" class="navLinks cartLink">
@@ -43,34 +37,31 @@
                 <div><img src="../assets/profile-user.png" alt="" class="profile"></div>
             </div>
         </div>
-        <!-- ---------------productDetails----------------- -->
+        <!-- -------------------------------------- -->
 
+        <div class="cartProductsDiv">
 
-        <div class="productDetailsDiv">
+            <div class="cartProduct">
+                <div class="imageDiv">
 
-            <div class="titleImgDiv">
-
-                <div class="imgDiv"><img src="" alt="" id="img"></div>
-            </div>
-
-            <div class="detailsDiv">
-                <div class="titleDiv" id="title"> </div>
-                <div class="priceDiv">
-                    <h1 id="price">₹4500/-</h1>
                 </div>
-                <div class="ratingDiv">
-                    <h2 id="rating">⭐ 3.5 / 5</h2>
+                <div class="deatilsDiv">
+                    <div class="title"></div>
+                    <div class="price"></div>
+                    <div class="plurOrMinusDiv">
+                        <div class="plusDiv"></div>
+                        <div class="value"></div>
+                        <div class="minus"></div>
+                    </div>
                 </div>
-                <div class="descDiv">
-                    <p id="desc"></p>
-                </div>
-                <div class="addToCart">Add to Cart 🛒</div>
             </div>
 
         </div>
 
+
+
     </div>
-    <script src="../script/productdetails.js"></script>
+    <script src="../script/cart.js"></script>
 </body>
 
 </html>

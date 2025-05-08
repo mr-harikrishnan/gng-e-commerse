@@ -1,0 +1,115 @@
+* {
+  margin: 0px;
+  padding: 0px
+}
+
+.container {
+  width: 100%;
+  height: 100%;
+  overflow-y: hidden;
+
+}
+
+/* HEADER----------------------------- */
+
+.header {
+  height: 8vh;
+  width: 100vw;
+  background-color: #D4E5F5;
+  display: flex;
+  align-items: center;
+  font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+  position: fixed;
+  z-index: 1000;
+
+
+
+}
+
+.logo {
+  margin-top: 10px;
+  height: 90px;
+  width: 90px;
+}
+
+.span {
+  font-family: Impact, Haettenschweiler, 'Arial Narrow Bold', sans-serif
+}
+
+.navBar {
+  display: flex;
+  margin-left: 512px;
+  align-items: center;
+
+}
+
+.navLinks {
+  margin-left: 100px;
+  text-decoration: none;
+  color: black;
+
+}
+
+
+.custom-select {
+  background: none;
+  width: 150px;
+  border: none;
+  border-radius: 8px;
+  padding: 8px;
+  font-size: 16px;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  transition: all 0.3s ease;
+  cursor: pointer;
+}
+
+.custom-select:hover {
+  border-color: #4CAF50;
+  background-color: #e8f5e9;
+}
+
+.custom-select:focus {
+  outline: none;
+  border-color: #2196F3;
+  background-color: #e3f2fd;
+}
+
+.custom-select option {
+  padding: 10px;
+  font-size: 16px;
+  background-color: #fff;
+}
+
+
+
+#cartCount {
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: relative;
+  bottom: 15px;
+  right: 10px;
+  color: darkslateblue;
+}
+
+.profile {
+  margin-top: 5px;
+  margin-left: 70px;
+  height: 30px;
+  width: 30px;
+}
+
+
+/* -------------------------------------------- */
+
+.cartProductsDiv{
+  height: 100vh;
+  width: 100%;
+  background-color: #b7d9f5;
+  margin-top: 500px;
+}
+
+.cartProduct{
+  width: 100%;
+  height: 90px;
+  border: 2px solid black;
+}
