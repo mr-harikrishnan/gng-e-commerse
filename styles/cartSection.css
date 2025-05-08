@@ -98,7 +98,7 @@
 
 .cartContainer {
   width: 100%;
-  height: 90vh;
+  height: 80vh;
 
   padding-top: 60px;
 
@@ -110,11 +110,12 @@
 .cartProductsDiv {
 
   width: 100%;
-  height: 70vh;
+  height: 75vh;
   display: flex;
   flex-wrap: wrap;
   justify-content: left;
-  border: 1px solid black;
+
+  box-shadow: 0 4px 16px rgba(0, 0, 0, 0.1);
   overflow: auto;
   padding-bottom: 30px;
 
@@ -168,7 +169,7 @@ border-radius: 10px;
 }
 
 .title{
-  margin-top: 20px;
+  margin-top: 0px;
   margin-left: 10px
 }
 
@@ -240,4 +241,26 @@ span{
   color: #2c7a00;
   font-weight: 700;
   margin: 0;
+}
+
+/* --------------------------- */
+
+.finalTotalAmount{
+font-family: unset;
+height: 60px;
+width: 100%;
+
+
+h1{
+  color: #3d4e6b;
+  margin-left: 1100px;
+}
+}
+
+#finalTotalAmount{
+  border: none;
+  color: red;
+  position: relative;
+  bottom: 59px;
+  left: 1310px;
 }

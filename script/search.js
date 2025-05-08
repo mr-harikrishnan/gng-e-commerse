@@ -44,11 +44,13 @@ if (cartJsonData) {
     })
 
 }
-
+// --------------------------------------------------------------------
 
 var input = document.getElementById("search")
 
-input.addEventListener("input", () => {
+
+
+input.addEventListener("input",function search(){
 
     var value = input.value.toLowerCase()
 
