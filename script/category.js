@@ -33,8 +33,8 @@ function navigateToCategory() {
 
 // -------------------------------------------
 
-var params=new URLSearchParams(window.location.search)
-var value=params.get("category")
+var params = new URLSearchParams(window.location.search)
+var value = params.get("category")
 console.log(value)
 // --------------------------------
 
@@ -43,7 +43,7 @@ var allproducts = document.getElementById("allProducts")
 console.log(allproducts)
 
 async function fetchingData() {
-    
+
     return fetch(`https://fakestoreapi.com/products/category/${value}`, {
         method: "GET"
     })
@@ -66,7 +66,7 @@ async function getAlldatas() {
         productDiv.style.alignItems = "center";
         productDiv.style.flexDirection = "column";
         productDiv.style.boxShadow = "0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19)";
-        productDiv.style.transition = "transform 0.2s ease"; 
+        productDiv.style.transition = "transform 0.2s ease";
 
 
         productDiv.addEventListener("mouseover", function () {
@@ -75,7 +75,7 @@ async function getAlldatas() {
         productDiv.addEventListener("mouseout", function () {
             productDiv.style.transform = "scale(1)";
         });
-       
+
         allproducts.appendChild(productDiv);
 
         var imageDiv = document.createElement("div")
@@ -117,7 +117,7 @@ async function getAlldatas() {
         price.textContent = `₹ ${product.price}`
         productDiv.appendChild(price)
 
-        
+
 
         var rating = document.createElement("div")
         rating.style.marginTop = "10px"
@@ -131,7 +131,7 @@ async function getAlldatas() {
 
         var addToCart = document.createElement("div");
         addToCart.textContent = "ADD TO CART";
-        addToCart.setAttribute("id",`${product.id}`)
+        addToCart.setAttribute("id", `${product.id}`)
 
         // Applying updated styles
         addToCart.style.marginTop = "30px";
@@ -150,7 +150,54 @@ async function getAlldatas() {
         addToCart.style.border = "none"; // Removed the black border for a cleaner look
         addToCart.style.fontFamily = "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif";
 
-        // Append to the desired parent element
+        // ------------------------ADD TO CART FUCTION-------------------------------------------------------------
+        addToCart.onclick = function () {
+            var divId = this.id
+
+            async function fetchinDdataById() {
+                return fetch(`https://fakestoreapi.com/products/${divId}`, {
+                    method: "GET"
+                })
+            }
+
+            async function getDatas() {
+                try {
+                    var fetchdata = await fetchinDdataById()
+                    var data = await fetchdata.json()
+                    var cart = JSON.parse(localStorage.getItem("cart")) || []
+                    var existingData = cart.find(item => item.id === data.id)
+                    if (existingData) {
+                        existingData.count += 1
+                    }
+                    else {
+                        data.count = 1
+                        cart.push(data)
+                    }
+                    localStorage.setItem("cart", JSON.stringify(cart))
+                    var totalCartCount = 0
+                    cart.forEach(function (data) {
+                        totalCartCount += data.count
+                    })
+                    document.getElementById("cartCount").textContent = totalCartCount
+
+                } catch (error) {
+                    console.log(error)
+                }
+            }
+            getDatas()
+        }
+        var totalCartCount = 0
+        var cartJsonData = JSON.parse(localStorage.getItem("cart"))
+        if (cartJsonData) {
+
+            cartJsonData.forEach(function (data) {
+                totalCartCount += data.count
+                document.getElementById("cartCount").textContent = totalCartCount
+            })
+
+        }
+
+        // ---------------------------------------------------------
         productDiv.appendChild(addToCart);
     })
 

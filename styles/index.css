@@ -80,11 +80,17 @@ background: none;
   background-color: #fff;
 }
 
-
+#cartCount{
+  font-family: 'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif;
+  position: relative;
+  bottom: 15px;
+  right: 10px;
+  color: darkslateblue;
+}
 
 .profile {
   margin-top: 5px;
-  margin-left: 100px;
+  margin-left: 70px;
   height: 30px;
   width: 30px;
 }

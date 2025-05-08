@@ -32,7 +32,7 @@ function navigateToCategory() {
 
 // ---------------------
 var allproducts = document.getElementById("allProducts")
-var cartArray=[]
+var cartArray = []
 
 async function fetchingData() {
     return fetch("https://fakestoreapi.com/products", {
@@ -66,7 +66,7 @@ async function getAlldatas() {
         productDiv.addEventListener("mouseout", function () {
             productDiv.style.transform = "scale(1)";
         });
-       
+
         allproducts.appendChild(productDiv);
 
         var imageDiv = document.createElement("div")
@@ -121,7 +121,7 @@ async function getAlldatas() {
 
         var addToCart = document.createElement("div");
         addToCart.textContent = "ADD TO CART";
-        addToCart.setAttribute("id",`${product.id}`)
+        addToCart.setAttribute("id", `${product.id}`)
 
         // Applying updated styles
         addToCart.style.marginTop = "30px";
@@ -137,11 +137,71 @@ async function getAlldatas() {
         addToCart.style.transition = "background-color 0.3s ease, transform 0.2s ease";
         addToCart.style.boxShadow = "0 4px 12px rgba(13, 110, 253, 0.3)";
         addToCart.style.width = "150px";
-        addToCart.style.border = "none"; 
+        addToCart.style.border = "none";
         addToCart.style.fontFamily = "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif";
-        addToCart.onclick=function(){
-            
+
+        // ------------------------ADD TO CART FUCTION-------------------------------------------------------------
+
+
+
+        addToCart.onclick = function () {
+            var divId = this.id
+
+
+            async function fetchinDdataById() {
+                return fetch(`https://fakestoreapi.com/products/${divId}`, {
+                    method: "GET"
+                })
+            }
+
+            async function getDatas() {
+
+                try {
+
+                    var fetchdata = await fetchinDdataById()
+                    var data = await fetchdata.json()
+
+                    var cart = JSON.parse(localStorage.getItem("cart")) || []
+
+                    var existingData = cart.find(item => item.id === data.id)
+                    if (existingData) {
+                        existingData.count += 1
+                    }
+                    else {
+                        data.count = 1
+                        cart.push(data)
+                    }
+
+                    localStorage.setItem("cart", JSON.stringify(cart))
+
+
+                    var totalCartCount = 0
+                    cart.forEach(function (data) {
+                        totalCartCount += data.count
+                    })
+
+                    document.getElementById("cartCount").textContent = totalCartCount
+
+
+                } catch (error) {
+                    console.log(error)
+                }
+
+            }
+            getDatas()
         }
+        var totalCartCount = 0
+        var cartJsonData = JSON.parse(localStorage.getItem("cart"))
+        if (cartJsonData) {
+
+            cartJsonData.forEach(function (data) {
+                totalCartCount += data.count
+                document.getElementById("cartCount").textContent = totalCartCount
+            })
+
+        }
+
+        // ---------------------------------------------------------
         productDiv.appendChild(addToCart);
     })
 

@@ -18,28 +18,33 @@
 
             <div class="navBar">
 
-                <a href="../index.html" class="navLinks" style="opacity: 0.5;" >🏠︎ Home</a>
+                <a href="../index.html" class="navLinks" style="opacity: 0.5;">Home 🏠︎</a>
 
                 <div class="navLinks">
-                    <select style="margin-bottom: 5px;" id="categorySelect" onchange="navigateToCategory()" class="custom-select">
-                        <option value="">🗍Category</option>
+                    <select style="margin-bottom: 5px;" id="categorySelect" onchange="navigateToCategory()"
+                        class="custom-select">
+                        <option value="">Category 🗍</option>
                     </select>
                 </div>
 
 
                 <a href="./pages/search.html">
-                    <img style="width: 20px; margin-left: 60px; opacity: 0.4; margin-top: 4px;" src="./assets/search-icon.png" alt="">
-                    <a href="./pages/search.html" class="navLinks" style="margin-left: 0px;">search</a>
-                    
+
+                    <a href="./pages/search.html" class="navLinks" style="margin-left: 60px">search </a>
+                    <img style="width: 20px; ; opacity: 0.4; margin-top: 4px;" src="./assets/search-icon.png" alt="">
+
                 </a>
 
-                <a href="./index.html" class="navLinks">🛒 Cart</a>
+                <a href="./index.html" class="navLinks cartLink">
+                    Cart 🛒
+                    <span id="cartCount"></span>
+                </a>
 
                 <div><img src="../assets/profile-user.png" alt="" class="profile"></div>
             </div>
         </div>
-        
-<!-- --------------------------header---------- -->
+
+        <!-- --------------------------header---------- -->
 
         <div class="poster"><img src="./assets/posterImage.png" alt=""></div>
 
@@ -50,6 +55,8 @@
         <div class="allProducts" id="allProducts">
 
         </div>
+
+        
 
 
 

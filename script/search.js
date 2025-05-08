@@ -34,6 +34,16 @@ function navigateToCategory() {
 
 // ---------------------------------------------------------------------
 
+var totalCartCount = 0
+var cartJsonData = JSON.parse(localStorage.getItem("cart"))
+if (cartJsonData) {
+
+    cartJsonData.forEach(function (data) {
+        totalCartCount += data.count
+        document.getElementById("cartCount").textContent = totalCartCount
+    })
+
+}
 
 
 var input = document.getElementById("search")
@@ -72,7 +82,7 @@ input.addEventListener("input", () => {
                 return;
             }
             alldatas.forEach(product => {
-                
+
 
                 if (product.title.toLowerCase().includes(value)) {
 
@@ -170,7 +180,44 @@ input.addEventListener("input", () => {
                     addToCart.style.width = "150px";
                     addToCart.style.border = "none"; // Removed the black border for a cleaner look
                     addToCart.style.fontFamily = "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif";
+                    // ------------------------ADD TO CART FUCTION-------------------------------------------------------------
 
+                   
+                    addToCart.onclick = function () {
+                        var divId = this.id
+                        async function fetchinDdataById() {
+                            return fetch(`https://fakestoreapi.com/products/${divId}`, {
+                                method: "GET"
+                            })
+                        }
+                        async function getDatas() {
+                            try {
+                                var fetchdata = await fetchinDdataById()
+                                var data = await fetchdata.json()
+                                var cart = JSON.parse(localStorage.getItem("cart")) || []
+                                var existingData = cart.find(item => item.id === data.id)
+                                if (existingData) {
+                                    existingData.count += 1
+                                }
+                                else {
+                                    data.count = 1
+                                    cart.push(data)
+                                }
+                                localStorage.setItem("cart", JSON.stringify(cart))
+                                var totalCartCount = 0
+                                cart.forEach(function (data) {
+                                    totalCartCount += data.count
+                                })
+                                document.getElementById("cartCount").textContent = totalCartCount
+                            } catch (error) {
+                                console.log(error)
+                            }
+                        }
+                        getDatas()
+                    }
+                   
+
+                    // ---------------------------------------------------------
                     // Append to the desired parent element
                     productDiv.appendChild(addToCart);
 

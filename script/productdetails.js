@@ -57,7 +57,6 @@ async function productdetails(){
     try {
         var data=await fetchingProductDetails()
     var productData=await data.json()
-    console.log(productData)
 
     var productImg=document.getElementById("img")
     productImg.src=`${productData.image}`
@@ -74,6 +73,10 @@ async function productdetails(){
 
     var desc=document.getElementById("desc")
     desc.textContent=`Description : ${productData.description}`
+    
+    var addToCartDiv=document.querySelector(".addToCart")
+    addToCartDiv.setAttribute("id",`${productData.id}`)
+
         
     } catch (error) {
         console.log(error)
@@ -83,4 +86,60 @@ productdetails()
 
 // ----------------------------------------------------
 
+document.querySelector(".addToCart").addEventListener("click",function(){
+    var divId = this.id
 
+
+    async function fetchinDdataById() {
+        return fetch(`https://fakestoreapi.com/products/${divId}`, {
+            method: "GET"
+        })
+    }
+
+    async function getDatas() {
+
+        try {
+
+            var fetchdata = await fetchinDdataById()
+            var data = await fetchdata.json()
+
+            var cart = JSON.parse(localStorage.getItem("cart")) || []
+
+            var existingData = cart.find(item => item.id === data.id)
+            if (existingData) {
+                existingData.count += 1
+            }
+            else {
+                data.count = 1
+                cart.push(data)
+            }
+
+            localStorage.setItem("cart", JSON.stringify(cart))
+
+
+            var totalCartCount = 0
+            cart.forEach(function (data) {
+                totalCartCount += data.count
+            })
+
+            document.getElementById("cartCount").textContent = totalCartCount
+
+
+        } catch (error) {
+            console.log(error)
+        }
+
+    }
+    getDatas()
+})
+
+var totalCartCount = 0
+        var cartJsonData = JSON.parse(localStorage.getItem("cart"))
+        if (cartJsonData) {
+
+            cartJsonData.forEach(function (data) {
+                totalCartCount += data.count
+                document.getElementById("cartCount").textContent = totalCartCount
+            })
+
+        }
