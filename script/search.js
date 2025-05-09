@@ -50,7 +50,7 @@ var input = document.getElementById("search")
 
 
 
-input.addEventListener("input",function search(){
+input.addEventListener("input", function search() {      //when enter input in search box.
 
     var value = input.value.toLowerCase()
 
@@ -59,8 +59,23 @@ input.addEventListener("input",function search(){
     window.history.replaceState(null, "", newUrl);
 
 
-    var params = new URLSearchParams(window.location.search)
-    var value = params.get("search")
+
+    seachFunction()
+})
+
+
+var params = new URLSearchParams(window.location.search)     
+var value = params.get("search")
+
+window.onload=function(){           //window on load time ouput
+    if(value){
+        seachFunction()
+    }
+}
+
+
+
+function seachFunction() {
 
     async function fetchDatas() {
         return fetch("https://fakestoreapi.com/products", {
@@ -83,6 +98,7 @@ input.addEventListener("input",function search(){
             if (!value.trim()) {
                 return;
             }
+
             alldatas.forEach(product => {
 
 
@@ -184,7 +200,7 @@ input.addEventListener("input",function search(){
                     addToCart.style.fontFamily = "'Franklin Gothic Medium', 'Arial Narrow', Arial, sans-serif";
                     // ------------------------ADD TO CART FUCTION-------------------------------------------------------------
 
-                   
+
                     addToCart.onclick = function () {
                         var divId = this.id
                         async function fetchinDdataById() {
@@ -217,7 +233,7 @@ input.addEventListener("input",function search(){
                         }
                         getDatas()
                     }
-                   
+
 
                     // ---------------------------------------------------------
                     // Append to the desired parent element
@@ -231,6 +247,7 @@ input.addEventListener("input",function search(){
         }
     }
     getDatas()
-})
+}
+
 
 
