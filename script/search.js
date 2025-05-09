@@ -65,10 +65,11 @@ input.addEventListener("input", function search() {      //when enter input in s
 
 
 var params = new URLSearchParams(window.location.search)     
-var value = params.get("search")
+var Loadvalue = params.get("search")
 
 window.onload=function(){           //window on load time ouput
-    if(value){
+    if(Loadvalue){
+        input.value=Loadvalue
         seachFunction()
     }
 }
